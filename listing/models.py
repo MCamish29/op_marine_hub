@@ -6,6 +6,7 @@ STATUS = ((0, "At Large!"), (1, "Caught!"))
 # Create your models here.
 class Wanted(models.Model):
     pirate_name = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
     bounty = models.IntegerField()
     description = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)

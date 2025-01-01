@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ pirate.pirate_name }}</h1>
+<p><strong>Bounty:</strong> ${{ pirate.bounty }}</p>
+<p><strong>Description:</strong> {{ pirate.description }}</p>
+<p><strong>Status:</strong> {{ pirate.get_status_display }}</p>
+<p><strong>Created On:</strong> {{ pirate.created_on }}</p>
+<p><strong>Reported by:</strong> {{ pirate.author.username }}</p>
+
+
+{% endblock %}

@@ -1,12 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<!-- index.html content starts here -->
 <div class="container-fluid">
     <div class="row">
-
-        <!-- Wanted Listings Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for wanted in wanted_list %}
@@ -18,43 +14,38 @@
                                     <p class="author">Submitted by: {{ wanted.author }}</p>
                                 </div>
                             </div>
-                            <a href="#" class="post-link">
+                            <!-- Make sure the URL is correctly rendered here -->
+                            <a href="{% url 'pirate_detail' slug=wanted.slug %}" class="post-link">
                                 <h2 class="card-title">{{ wanted.pirate_name }}</h2>
                             </a>
                             <hr />
-                            <p class="card-text text-muted h6">Bounty: {{ wanted.bounty}}
-                            </p>
+                            <p class="card-text text-muted h6">Bounty: {{ wanted.bounty }}</p>
                             <p class="{% if wanted.get_status_display == 'At Large!' %}text-danger{% endif %}">{{ wanted.get_status_display }}</p>
-                            <p class="card-text text-muted h6">{{ wanted.created_on}}
-                            </p>
+                            <p class="card-text text-muted h6">{{ wanted.created_on }}</p>
                         </div>
                     </div>
                 </div>
                 {% if forloop.counter|divisibleby:3 %}
             </div>
             <div class="row">
-                {% endif %}
-                {% endfor %}
-
-            </div>
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li>
-                <a href="?page={{ page_obj.previous_page_number }}"
-                class="page-link">&laquo; PREV</a>
-            </li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
 </div>
-
-<!-- index.html content ends here -->
+{% if is_paginated %}
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li>
+            <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+        </li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+</div>
 {% endblock %}
