@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marine Hub | About Wanted Listing</title>
+</head>
+<body>
+    <h1>Wanted Lists</h1>
+    {% for wanted in object_list %}
+    <div>
+        <h2>{{wanted.pirate_name}}</h2>
+        <p>{{wanted.bounty}}</p>
+        <p>Created by: {{wanted.author}}</p>
+    </div>
+    {% endfor %}
+</body>
+
+</html>
