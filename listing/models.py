@@ -17,3 +17,4 @@ class Wanted(models.Model):
     def __str__(self):
         return f" {self.pirate_name} | Bounty: {self.bounty}"
 
+   

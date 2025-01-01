@@ -11,7 +11,7 @@
             <div class="row">
                 {% for wanted in wanted_list %}
                 <div class="col-md-4">
-                    <div class="card mb-4">
+                    <div class="card text-center mb-4">
                         <div class="card-body">
                             <div class="image-container">
                                 <div class="image-flash">
@@ -24,6 +24,7 @@
                             <hr />
                             <p class="card-text text-muted h6">Bounty: {{ wanted.bounty}}
                             </p>
+                            <p class="{% if wanted.get_status_display == 'At Large!' %}text-danger{% endif %}">{{ wanted.get_status_display }}</p>
                             <p class="card-text text-muted h6">{{ wanted.created_on}}
                             </p>
                         </div>
@@ -41,6 +42,12 @@
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li>
+                <a href="?page={{ page_obj.previous_page_number }}"
+                class="page-link">&laquo; PREV</a>
+            </li>
+            {% endif %}
             {% if page_obj.has_next %}
             <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
             {% endif %}
