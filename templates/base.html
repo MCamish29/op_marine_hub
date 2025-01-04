@@ -60,14 +60,22 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav>   
 
     <!-- Main Content -->
-    <div class="container mt-4">
-        {% block content %}
-        <!-- Child templates will insert their content here -->
-        {% endblock %}
-    </div>
+    <main class="flex-shrink-0 main-bg">
+        {% if user.is_authenticated %}
+        <p class="text-end m-3">Logged in as {{ user.username }}</p>
+        {% else %}
+        <p class="text-end m-3">You are not logged in</p>
+        {% endif %}
+
+        <div class="container mt-4">
+            {% block content %}
+            <!-- Child templates will insert their content here -->
+            {% endblock %}
+        </div>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-light text-center py-4 mt-4 fixed-bottom">
