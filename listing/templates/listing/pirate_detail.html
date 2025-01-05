@@ -2,12 +2,19 @@
 
 {% block content %}
 
+<div>
 <h1>{{ pirate.pirate_name }}</h1>
 <p><strong>Bounty:</strong> ${{ pirate.bounty }}</p>
 <p><strong>Description:</strong> {{ pirate.description }}</p>
 <p><strong>Status:</strong> {{ pirate.get_status_display }}</p>
 <p><strong>Created On:</strong> {{ pirate.created_on }}</p>
 <p><strong>Reported by:</strong> {{ pirate.author.username }}</p>
+</div>
 
+<div>
+    {% if request.user == pirate.author %}
+    <a href="{% url 'edit_pirate' pirate.slug %}" class="btn btn-primary">Edit</a>
+    {% endif %}
+</div>
 
 {% endblock %}

@@ -9,7 +9,7 @@ from .forms import WantedForm
 
 # Create your views here.
 class WantedListing(generic.ListView):
-    queryset = Wanted.objects.all()
+    queryset = Wanted.objects.all().order_by('-updated_on')
     template_name = 'listing/index.html'
     paginate_by = 3
 
@@ -39,3 +39,23 @@ def create_wanted_listing(request):
         form = WantedForm()
     
     return render(request, 'listing/create_listing.html', {'form': form})
+
+@login_required
+def edit_wanted_listing(request, slug):
+    wanted_listing = Wanted.objects.get(slug=slug)
+
+    # Check if the logged-in user is the author
+    if wanted_listing.author != request.user:
+        messages.error(request, "You are not authorized to edit this listing.")
+        return redirect('pirate_detail', slug=slug)
+
+    if request.method == 'POST':
+        form = WantedForm(request.POST, instance=wanted_listing)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "The listing has been updated successfully.")
+            return redirect('pirate_detail', slug=wanted_listing.slug)
+    else:
+        form = WantedForm(instance=wanted_listing)
+
+    return render(request, 'listing/edit_listing.html', {'form': form, 'pirate': wanted_listing})
