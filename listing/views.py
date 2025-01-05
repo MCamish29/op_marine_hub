@@ -25,16 +25,15 @@ class PirateDetailView(generic.DetailView):
 def create_wanted_listing(request):
     if request.method == 'POST':
         form = WantedForm(request.POST)
-        if form.is_valid():
-            # Set the current user as the author of the wanted listing
+        if form.is_valid():            
             wanted_listing = form.save(commit=False)
-            wanted_listing.author = request.user  # Attach the logged-in user
-            wanted_listing.save() # Save the listing with the auto-generated slug
+            wanted_listing.author = request.user  
+            wanted_listing.save() 
             messages.add_message(
                 request, messages.SUCCESS,
-                'Thank you for you submission'
+                'Thank you for your submission'
             )
-            return redirect('home')  # Redirect to the home page (or wherever you'd like)
+            return redirect('home') 
     else:
         form = WantedForm()
     
@@ -47,14 +46,13 @@ def edit_wanted_listing(request, slug):
     # Check if the logged-in user is the author
     if wanted_listing.author != request.user:
         messages.error(request, "You are not authorized to edit this listing.")
-        return redirect('pirate_detail', slug=slug)
-
+        return redirect('home')  
     if request.method == 'POST':
         form = WantedForm(request.POST, instance=wanted_listing)
         if form.is_valid():
             form.save()
             messages.success(request, "The listing has been updated successfully.")
-            return redirect('pirate_detail', slug=wanted_listing.slug)
+            return redirect('home') 
     else:
         form = WantedForm(instance=wanted_listing)
 
