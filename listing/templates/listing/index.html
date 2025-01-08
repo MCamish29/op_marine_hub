@@ -22,6 +22,7 @@
                             <p class="card-text text-muted h6">Bounty: {{ wanted.bounty }}</p>
                             <p class="{% if wanted.get_status_display == 'At Large!' %}text-danger{% endif %}">{{ wanted.get_status_display }}</p>
                             <p class="card-text text-muted h6">{{ wanted.created_on }}</p>
+                            <p class="card-text text-muted h6">{{ wanted.updated_on }}</p>
                         </div>
                     </div>
                 </div>

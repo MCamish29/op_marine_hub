@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -45,15 +45,32 @@ def edit_wanted_listing(request, slug):
 
     # Check if the logged-in user is the author
     if wanted_listing.author != request.user:
-        messages.error(request, "You are not authorized to edit this listing.")
+        messages.error(request, "You are not authorized to edit this wanted listing.")
         return redirect('home')  
     if request.method == 'POST':
         form = WantedForm(request.POST, instance=wanted_listing)
         if form.is_valid():
             form.save()
-            messages.success(request, "The listing has been updated successfully.")
+            messages.success(request, "The wanted listing has been updated successfully.")
             return redirect('home') 
     else:
         form = WantedForm(instance=wanted_listing)
 
     return render(request, 'listing/edit_listing.html', {'form': form, 'pirate': wanted_listing})
+
+
+@login_required
+def delete_wanted_listing(request, slug):
+    wanted_listing = get_object_or_404(Wanted, slug=slug)
+
+    # Check if the logged-in user is the author
+    if wanted_listing.author != request.user:
+        messages.error(request, "You are not authorized to delete this wanted listing.")
+        return redirect('home')
+
+    if request.method == 'POST':
+        wanted_listing.delete()
+        messages.success(request, "The wanted listing has been deleted successfully.")
+        return redirect('home')
+
+    return render(request, 'listing/confirm_delete.html', {'pirate': wanted_listing})

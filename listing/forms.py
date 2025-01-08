@@ -10,7 +10,7 @@ class WantedForm(forms.ModelForm):
     def save(self, commit=True):
         # Auto-generate the slug based on pirate_name
         instance = super().save(commit=False)
-        instance.slug = slugify(instance.pirate_name)  # Ensure the slug is generated
+        instance.slug = slugify(instance.pirate_name)
         if commit:
             instance.save()
         return instance
