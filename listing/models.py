@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "At Large!"), (1, "Caught!"))
 
@@ -8,6 +9,7 @@ class Wanted(models.Model):
     pirate_name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     bounty = models.IntegerField()
+    pirate_image = CloudinaryField('image', default='placeholder')
     description = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
