@@ -5,30 +5,30 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-4 col-md-4">
-            <div class="image-container ">
-                <img src="{{ pirate.pirate_image.url }}" alt="Image of {{ pirate.pirate_name }}" class="img-fluid">
+            <div class="image-container ">     
+                    <img src="{{ pirate.pirate_image.url }}" alt="Image of {{ pirate.pirate_name }}" class="img-fluid">                
             </div>
         </div>     
-        <div class="col-lg-8 col-md-8">
-            <h1>{{ pirate.pirate_name }}</h1>
+        <div class="details col-lg-8 col-md-8">
+            <h1 class="name">{{ pirate.pirate_name }}</h1>
             <p><strong>Bounty:</strong> ${{ pirate.bounty }}</p>
             <p><strong>Description:</strong> {{ pirate.description }}</p>
             <p><strong>Status:</strong> {{ pirate.get_status_display }}</p>
             <p><strong>Created On:</strong> {{ pirate.created_on }}</p>
             <p><strong>Reported by:</strong> {{ pirate.author.username }}</p>
+            <div class="btn-container">  
+                <div>
+                    {% if request.user == pirate.author %}
+                    <a href="{% url 'edit_pirate' pirate.slug %}" class="btn btn-primary ">Edit</a>
+                    {% endif %}
+                </div>
 
-            <div>
-                {% if request.user == pirate.author %}
-                <a href="{% url 'edit_pirate' pirate.slug %}" class="btn btn-primary mb-4">Edit</a>
-                {% endif %}
-            </div>
-
-            <div>
-                {% if request.user == pirate.author %}
-                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-                {% endif %}
-            </div>
-
+                <div>
+                    {% if request.user == pirate.author %}
+                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+                    {% endif %}
+                </div>
+            </div>  
             <!-- Delete Confirmation Modal -->
             <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                 <div class="modal-dialog">

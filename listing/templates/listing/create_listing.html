@@ -1,31 +1,40 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <div class="container mt-4">
-    <h2>Create a New Wanted Listing</h2>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="form-group my-4">
-            <label for="pirate_name" class="mr-3">Pirate Name</label>
-            {{ form.pirate_name }}
-        </div>       
-        <div class="form-group my-4">
-            <label for="bounty" class="mr-3">Bounty</label>
-            {{ form.bounty }}
-        </div>       
-        <div class="form-group my-4">
-            <label for="description" class="mr-3">Description</label>
-            {{ form.description }}
-        </div>        
-        <div class="form-group my-4">
-            <label for="status" class="mr-3">Status</label>
-            {{ form.status }}
+    <h2 class="edit-title">Create a New Wanted Listing</h2>
+    <div class="row">
+        <div class="col-lg-3">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group my-4">
+                    <label for="pirate_name" class="mr-3"><strong>Pirate Name</strong></label>
+                    {{ form.pirate_name }}
+                </div>       
+                <div class="form-group my-4">
+                    <label for="bounty" class="mr-3"><strong>Bounty</strong></label>
+                    {{ form.bounty }}
+                </div>       
+                <div class="form-group my-4">
+                    <label for="description" class="mr-3"><strong>Description</strong></label>
+                    {{ form.description }}
+                </div>        
+                <div class="form-group my-4">
+                    <label for="status" class="mr-3"><strong>Status</strong></label>
+                    {{ form.status }}
+                </div>
+                <div class="form-group my-4">
+                    <label for="pirate_image" class="mr-3"><strong>Upload image of pirate</strong></label>
+                    {{ form.pirate_image }}
+                </div>       
+                <button type="submit" class="btn btn-primary my-2">Create Listing</button>
+            </form>
         </div>
-        <div class="form-group my-4">
-            <label for="pirate_image" class="mr-3">Pirate Image</label>
-            {{ form.pirate_image }}
-        </div>       
-        <button type="submit" class="btn btn-primary my-2">Create Listing</button>
-    </form>    
+        <div class="container col-lg-8 text-center">
+            <img src="{% static 'images/marines.png' %}" alt="Marines Logo" class="img-fluid">
+        </div>  
+    </div>    
 </div>
+
 {% endblock %}
