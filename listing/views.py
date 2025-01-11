@@ -24,7 +24,7 @@ class PirateDetailView(generic.DetailView):
 @login_required
 def create_wanted_listing(request):
     if request.method == 'POST':
-        form = WantedForm(request.POST)
+        form = WantedForm(request.POST, request.FILES)
         if form.is_valid():            
             wanted_listing = form.save(commit=False)
             wanted_listing.author = request.user  
