@@ -12,15 +12,14 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in wanted.pirate_image.url %}
-                                <img class="card-img-top" src="{% static 'images/marines.png' %}" alt="placeholder image">
+                                <img class="card-img-top rounded-bottom img-fluid" src="{% static 'images/marines.png' %}" alt="placeholder image">
                                 {% else %}
-                                    <img class="card-img-top" src="{{ wanted.pirate_image.url }}" alt="{{ wanted.pirate_name }}">
+                                    <img class="card-img-top rounded-bottom img-fluid" src="{{ wanted.pirate_image.url }}" alt="{{ wanted.pirate_name }}">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Submitted by: {{ wanted.author }}</p>
                                 </div>
-                            </div>
-                            <!-- Make sure the URL is correctly rendered here -->
+                            </div>                         
                             <a href="{% url 'pirate_detail' slug=wanted.slug %}" class="post-link">
                                 <h2 class="card-title">{{ wanted.pirate_name }}</h2>
                             </a>
