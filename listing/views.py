@@ -48,7 +48,7 @@ def edit_wanted_listing(request, slug):
         messages.error(request, "You are not authorized to edit this wanted listing.")
         return redirect('home')  
     if request.method == 'POST':
-        form = WantedForm(request.POST, instance=wanted_listing)
+        form = WantedForm(request.POST, request.FILES, instance=wanted_listing)
         if form.is_valid():
             form.save()
             messages.success(request, "The wanted listing has been updated successfully.")
