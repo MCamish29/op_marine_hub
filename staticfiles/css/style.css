@@ -6,3 +6,60 @@
 .text-danger {
     color: red;
 }
+
+.edit-title {
+    font-family: 'Allerta Stencil', sans-serif !important;
+    font-weight: normal !important;
+}
+
+.name {
+    font-family: 'Allerta Stencil', sans-serif !important;
+    font-weight: normal !important;
+}
+
+@media (max-width: 768px) {
+    .btn-container {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;   
+    }
+    .btn-container button, .btn-container a {
+        padding: 8px 12px; 
+        font-size: 90%; 
+    }
+    .details{
+        font-size: 85%;
+    }
+    .details h1{
+        font-size: 120%;
+    }
+    .user{
+        font-size: 75%;
+    }
+     
+}
+
+@media (min-width: 768px) {
+    footer {
+        position: fixed; 
+        bottom: 0;
+        left: 0;
+        width: 100%; 
+    }
+
+    .btn-container {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;   
+    }
+    .navbar-brand {
+        font-family: 'Allerta Stencil', sans-serif;
+        font-weight: normal;
+        font-size: xx-large !important; 
+    }
+
+}
