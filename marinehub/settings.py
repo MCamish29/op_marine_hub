@@ -28,12 +28,12 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
             '8000-mcamish29-opmarinehub-b7uy4am9b9c.ws.codeinstitute-ide.net',
             '.herokuapp.com']
-            
+
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
