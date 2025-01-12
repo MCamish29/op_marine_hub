@@ -2,10 +2,16 @@ from django import forms
 from django.utils.text import slugify
 from .models import Wanted
 
+
 class WantedForm(forms.ModelForm):
     class Meta:
         model = Wanted
-        fields = ['pirate_name', 'bounty', 'description', 'status', 'pirate_image']
+        fields = [
+            'pirate_name',
+            'bounty',
+            'description',
+            'status',
+            'pirate_image']
 
     def save(self, commit=True):
         # Auto-generate the slug based on pirate_name

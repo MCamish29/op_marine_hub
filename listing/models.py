@@ -4,6 +4,7 @@ from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "At Large!"), (1, "Caught!"))
 
+
 # Create your models here.
 class Wanted(models.Model):
     pirate_name = models.CharField(max_length=200, unique=True)
@@ -23,5 +24,3 @@ class Wanted(models.Model):
 
     def formatted_bounty(self):
         return f"{self.bounty:,}"
-
-   
