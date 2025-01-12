@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+
 {% block content %}
 
 <div class="container">
@@ -11,7 +12,7 @@
         </div>     
         <div class="details col-lg-8 col-md-8">
             <h1 class="name">{{ pirate.pirate_name }}</h1>
-            <p><strong>Bounty:</strong> ${{ pirate.bounty }}</p>
+            <p><strong>Bounty:</strong> {{ pirate.formatted_bounty }}</p>
             <p><strong>Description:</strong> {{ pirate.description }}</p>
             <p><strong>Status:</strong> {{ pirate.get_status_display }}</p>
             <p><strong>Created On:</strong> {{ pirate.created_on }}</p>

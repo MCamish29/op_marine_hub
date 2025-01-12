@@ -8,7 +8,7 @@
             <div class="row">
                 {% for wanted in wanted_list %}
                 <div class="col-md-4">
-                    <div class="card text-center mb-4">
+                    <div class="card border-primary text-center mb-4">
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in wanted.pirate_image.url %}
@@ -24,10 +24,10 @@
                                 <h2 class="card-title name">{{ wanted.pirate_name }}</h2>
                             </a>
                             <hr />
-                            <p class="card-text text-muted h6">Bounty: {{ wanted.bounty }}</p>
+                            <p class="card-text text-muted h6">Bounty: {{ wanted.formatted_bounty }}</p>
                             <p class="{% if wanted.get_status_display == 'At Large!' %}text-danger{% endif %}">{{ wanted.get_status_display }}</p>
-                            <p class="card-text text-muted h6">{{ wanted.created_on }}</p>
-                            <p class="card-text text-muted h6">{{ wanted.updated_on }}</p>
+                            <p class="card-text text-muted h6">Created on: {{ wanted.created_on }}</p>
+                            <p class="card-text text-muted h6">Updated on:{{ wanted.updated_on }}</p>
                         </div>
                     </div>
                 </div>
