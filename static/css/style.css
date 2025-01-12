@@ -17,6 +17,10 @@
     font-weight: normal !important;
 }
 
+.error-id {
+    font-family: 'Allerta Stencil', sans-serif;
+}
+
 @media (max-width: 768px) {
     .btn-container {
         display: flex;
