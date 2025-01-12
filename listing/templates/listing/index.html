@@ -14,7 +14,7 @@
                                 {% if "placeholder" in wanted.pirate_image.url %}
                                 <img class="card-img-top rounded-bottom img-fluid" src="{% static 'images/marines.png' %}" alt="placeholder image">
                                 {% else %}
-                                    <img class="card-img-top rounded-bottom img-fluid" src="{{ wanted.pirate_image.url }}" alt="{{ wanted.pirate_name }}">
+                                    <img class="card-img-top rounded-bottom img-fluid" src="{{ wanted.pirate_image.url}}" alt="{{ wanted.pirate_name }}">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Submitted by: {{ wanted.author }}</p>
@@ -23,7 +23,7 @@
                             <a href="{% url 'pirate_detail' slug=wanted.slug %}" class="post-link">
                                 <h2 class="card-title name">{{ wanted.pirate_name }}</h2>
                             </a>
-                            <hr />
+                            <hr>
                             <p class="card-text text-muted h6">Bounty: {{ wanted.formatted_bounty }}</p>
                             <p class="{% if wanted.get_status_display == 'At Large!' %}text-danger{% endif %}">{{ wanted.get_status_display }}</p>
                             <p class="card-text text-muted h6">Created on: {{ wanted.created_on }}</p>
