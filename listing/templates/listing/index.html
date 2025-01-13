@@ -11,10 +11,14 @@
                     <div class="card border-primary text-center mb-4">
                         <div class="card-body">
                             <div class="image-container">
-                                {% if "placeholder" in wanted.pirate_image.url %}
-                                <img class="card-img-top rounded-bottom img-fluid" src="{% static 'images/marines.png' %}" alt="placeholder image">
-                                {% else %}
-                                    <img class="card-img-top rounded-bottom img-fluid" src="{{ wanted.pirate_image.url}}" alt="{{ wanted.pirate_name }}">
+                                {% if wanted.pirate_image and wanted.pirate_image.url %}                            
+                                    <img class="card-img-top rounded-bottom img-fluid" 
+                                        src="{{ wanted.pirate_image.url }}" 
+                                        alt="{{ wanted.pirate_name }}">
+                                {% else %}                                
+                                    <img class="card-img-top rounded-bottom img-fluid" 
+                                        src="https://res.cloudinary.com/dunhhqljl/image/upload/v1736789635/marines_aculb0.png" 
+                                        alt="Marines image">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Submitted by: {{ wanted.author }}</p>
