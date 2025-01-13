@@ -2,7 +2,10 @@
 
 A web application inspired by One Piece, designed for the Marines to efficiently log, view, edit, and delete the most wanted pirates lists. The hub allows Marine officers to manage and maintain a real-time database of bounties, track wanted pirates, and update their status with ease, ensuring that the latest criminal activity is always up to date.
 
+![Site Preview](static/images/sitepreview.gif)
+
 [Link to site](https://marine-hub-c8dbfbfaea4e.herokuapp.com/)<br>
+[Link to repository](https://github.com/MCamish29/op_marine_hub.git)<br><br>
 _To open links in a new tab, hold CTRL + Click_
 
 ## Table of Contents
@@ -10,12 +13,13 @@ _To open links in a new tab, hold CTRL + Click_
 - [Installation](#installation)
 - [Database](#database)
 - [Testing](#testing)
+- [Validation](#validation)
 - [Deployment](#deployment)
 - [Technologies Used](#technologies-used)
 - [Acknowledgments](#acknowledgments)
 
 ## Features
-
+The web app allows Marine officers to perform the following actions to manage the most wanted pirate lists:
 - Add new pirate records.
 ![Add](static/images/newlisting.webp)
 - Edit existing pirate records.
@@ -30,8 +34,8 @@ _To open links in a new tab, hold CTRL + Click_
 <img src="static/images/tabletview.webp" alt="Tablet" width="309" height="auto">
 
 ## Future enhancements
-* A future enhancement to the site is to allow visitors to a listing to comment to engange the users more.
-* An additional enhancement to the site would be search functionality to allow for a precise experience when using the site.
+* Adding a commenting system for users to engage with pirate listings.
+* Search functionality will allow users to efficiently find pirates by name, bounty, or other details.
 
 <br>
 
@@ -99,28 +103,48 @@ Packages must be added to requirements.txt `pip3 freeze --local > requirements.t
 
 <br>
 
-# Testing
+# Testing 
 
 | **Test** | **Steps** | **Expected Result** | **Result** |
 | --- | --- | --- | --- |
-| Home page displays from URL | 1. Type the URL into the browser <br> 2. Press Enter | The home page loads with its contents, including the navbar and footer. | Pass |
-| Additional listings displayed | 1. Click the next or previous pagination buttons | Additional listings are displayed in the same format as the current page. | Pass |
-| Login to existing account | 1. Click Login on the Navbar <br> 2. Enter username and password <br> 3. Click Sign In | After signing in, the user is redirected to the home page, with a confirmation message appearing in the top right. The navbar will also display the Logout option. | Pass |
-| Login to existing account - incorrect password/username | 1. Click Login on the Navbar <br> 2. Enter username and/or incorrect password <br> 3. Click Sign In | The user remains on the login page and sees an error message indicating that the login credentials are incorrect. | Pass |
-| Logging out of account | 1. Click Log Out on the navbar <br> 2. Click Sign Out | After signing out, the user is redirected to the home page, with a confirmation message appearing in the top right. The site will show that the user is logged out, and the navbar will display the Log In and Register options. | Pass |
-| Registering a new account | 1. Click Register on the navbar <br> 2. Enter required fields <br> 3. Click Sign Up | After completing the registration and clicking Sign Up, the user account is created, and a confirmation message appears in the top right. The navbar will show the Logout option. | Pass |
-| Registering a new account - without entering username | 1. Click Register on the navbar <br> 2. Enter required fields excluding username <br> 3. Click Sign Up | The system will prompt the user to provide a username, displaying a message indicating the missing field. | Pass |
-| Registering a new account - with incorrect password requirements | 1. Click Register on the navbar <br> 2. Enter required fields but not meeting the password requirements <br> 3. Click Sign Up | A message will appear indicating that the password does not meet the required criteria. | Pass |
-| Viewing pirate details as a visitor of listing | 1. Click on pirate name | The user is redirected to the pirate details page, where all the pirate's information and image are displayed. | Pass |
-| Viewing pirate details as creator of listing | 1. Click on pirate name | The user is redirected to the pirate details page, where all information and the pirate's image are displayed, along with buttons for editing and deleting the listing. | Pass |
-| Returning to home page | 1. Click on Home | The user is redirected to the home page, no matter which page they are currently viewing. | Pass |
-| Returning to home page | 1. Click on brand name "Marine Hub: Most Wanted" | The user is redirected to the home page from any other page. | Pass |
-| Edit current listing as creator of listing | 1. Click on pirate name <br> 2. Click on Edit <br> 3. Edit relevant fields <br> 4. Click Save Changes | The user selects their pirate listing to access the edit option. After editing, clicking Save Changes will update the listing, and the changes will be reflected on both the home page and the pirate details page. | Pass |
-| Cancel edit of current listing as creator of listing | 1. Click on pirate name <br> 2. Click on Edit <br> 3. Click Cancel | The user can cancel the edit, and they will be redirected back to the pirate details page without saving changes. | Pass |
-| Delete listing as creator of listing | 1. Click on pirate name <br> 2. Click on Delete <br> 3. Click Delete | After confirming deletion, the listing is removed from the home page, and a success message is displayed. | Pass |
-| Cancel delete of current listing as creator of listing | 1. Click on pirate name <br> 2. Click on Delete <br> 3. Click Cancel | The user cancels the delete action, and the pirate details page is displayed without making any changes. | Pass |
-| Create a new listing | 1. Click New Listing on navbar <br> 2. Fill in required fields <br> 3. Click Create Listing | After filling out the necessary information and clicking Create Listing, the user is redirected to the home page, where the new listing appears. | Pass |
-| Create a new listing - not meeting required fields | 1. Click New Listing on navbar <br> 2. Fill in some of the required fields <br> 3. Click Create Listing | A message will appear indicating which required fields are missing, and the user will not be able to submit the form until all fields are filled in. | Pass |
+| **Home page displays from URL** | 1. Open the browser. <br> 2. Type the URL into the address bar: [https://marine-hub-c8dbfbfaea4e.herokuapp.com/](https://marine-hub-c8dbfbfaea4e.herokuapp.com/) <br> 3. Press **Enter**. | The home page loads with its contents, including the navigation bar and footer. | Pass |
+| **Additional listings displayed** | 1. Navigate to the home page if not already there. <br> 2. Scroll down to the bottom of the page. <br> 3. Click on the "Next" button to view more listings. | Additional pirate listings are displayed in the same format as the current page. | Pass |
+| **Login to existing account** | 1. Navigate to the top right corner of the homepage. <br> 2. Click the **Login** button in the navbar. <br> 3. Enter the username in the "Username" field. <br> 4. Enter the password in the "Password" field. <br> 5. Click the **Sign In** button. | After signing in, the user is redirected to the home page, with a confirmation message appearing at the top-right corner. The navbar should now display the **Logout** button. | Pass |
+| **Login to existing account - incorrect password/username** | 1. Navigate to the top right corner of the homepage. <br> 2. Click the **Login** button in the navbar. <br> 3. Enter an incorrect username or password in the fields. <br> 4. Click the **Sign In** button. | The user remains on the login page and sees an error message indicating that the login credentials are incorrect. | Pass |
+| **Logging out of account** | 1. Navigate to the top-right corner of the homepage. <br> 2. Click the **Logout** button in the navbar. <br> 3. Confirm that you want to log out by clicking the **Sign Out** option in the prompt. | After signing out, the user is redirected to the home page. A confirmation message appears, and the navbar now displays the **Login** and **Register** options instead of **Logout**. | Pass |
+| **Registering a new account** | 1. Navigate to the top-right corner of the homepage. <br> 2. Click the **Register** button in the navbar. <br> 3. Enter the **username** in the required field. <br> 4. Enter the **email** in the required field. <br> 5. Enter a **password** that meets the required criteria. <br> 6. Click the **Sign Up** button. | After completing the registration, the user account is created successfully, and a confirmation message appears at the top-right corner. The navbar will now display the **Logout** option. | Pass |
+| **Registering a new account - without entering username** | 1. Navigate to the **Register** page. <br> 2. Leave the **username** field blank. <br> 3. Enter the other required fields: **email** and **password**. <br> 4. Click the **Sign Up** button. | The system will display an error message indicating that the username field is required and will prevent the form from being submitted. | Pass |
+| **Registering a new account - with incorrect password requirements** | 1. Navigate to the **Register** page. <br> 2. Enter the **username** and **email**. <br> 3. Enter a password that does not meet the required criteria (e.g., too short or lacks special characters). <br> 4. Click the **Sign Up** button. | The system will display an error message indicating that the password does not meet the required criteria, and the form will not submit. | Pass |
+| **Viewing pirate details as a visitor** | 1. On the homepage, browse the list of pirates. <br> 2. Click on the name of any pirate. | The user is redirected to the pirate details page, where they can view all information about the pirate, including their bounty, description, and image. No edit/delete buttons should be visible to visitors. | Pass |
+| **Viewing pirate details as creator of listing** | 1. Log in as the creator of a pirate listing. <br> 2. On the homepage, click on the name of the pirate listing they created. | The user is redirected to the pirate details page, where they can see all the pirate's information, including a button to **Edit** or **Delete** the listing. | Pass |
+| **Returning to home page** | 1. Navigate to any page other than the home page (e.g., a pirate's details page). <br> 2. Click the **Home** button in the navbar. | The user is redirected back to the home page, regardless of their current page. | Pass |
+| **Edit current listing as creator of listing** | 1. On the pirate details page, click the **Edit** button. <br> 2. Make changes to the pirate's information (e.g., bounty, description). <br> 3. Click **Save Changes**. | The changes are saved, and the user is redirected back to the pirate details page. The updated information should be visible. | Pass |
+| **Cancel edit of current listing as creator of listing** | 1. On the pirate details page, click the **Edit** button. <br> 2. Modify the fields, but then click the **Cancel** button. | The user is redirected back to the pirate details page without saving any changes, and the original information is displayed. | Pass |
+| **Delete listing as creator of listing** | 1. On the pirate details page, click the **Delete** button. <br> 2. Confirm the deletion by clicking **Delete** in the confirmation prompt. | The pirate listing is deleted, and the user is redirected to the homepage where the deleted listing no longer appears. A success message will be shown. | Pass |
+| **Create a new listing** | 1. On the navbar, click the **New Listing** button. <br> 2. Fill in all required fields (pirate name, bounty, description, image). <br> 3. Click **Create Listing**. | After submitting the form, the user is redirected to the homepage, where the newly created pirate listing is displayed. | Pass |
+| **Create a new listing - missing required fields** | 1. Click the **New Listing** button on the navbar. <br> 2. Leave some required fields blank (e.g., pirate name). <br> 3. Click **Create Listing**. | The form will display an error message indicating which required fields are missing and will not allow submission until all fields are completed. | Pass |
+
+
+# Validation
+
+### W3C
+
+All HTML pages were passed through [W3C HTML Validator](https://validator.w3.org/) to ensure it met required standards. The HTML pages were all successful when passing the code through from page source.
+
+All CSS pages were passed through [W3C CSS Validation](https://jigsaw.w3.org/css-validator/) successfully.
+
+### PEP8
+
+All Python files were passed through [Code Institute PEP8 Linter](https://pep8ci.herokuapp.com/#) to ensure it met required standards. The only warnings given related to the settings.py file this was due to 4 lines in AUTH_PASSWORD_VALIDATORS being greater than the desired amount of characters, this code was installed by Django on setup.
+
+### JSHint
+
+The Javascript file was passed [JSHint](https://jshint.com/) successfully.
+
+## Bugs
+
+Bugs were found during development of the site and resolved which can be seen on the [Kanban workflow](https://github.com/users/MCamish29/projects/2/views/1).
+
 
 # Deployment
 
@@ -155,10 +179,11 @@ Packages must be added to requirements.txt `pip3 freeze --local > requirements.t
 * **Heroku** was used to deploy the application
 * **Git** was used to commit code
 * **GitHub** was used to store the repo
-* **CI Python Linter** was used for python validation
+* **Code Institute Python Linter** was used for python validation
 * **W3C** was used for HTML and CSS validation
 * **JSHint** was used for Javascript validation
-* **Cloudinary** was usede to store images
+* **Cloudinary** was used to store images
+* **Google Fonts** was used for styling
 
 
 # Acknowledgments
@@ -166,3 +191,4 @@ Packages must be added to requirements.txt `pip3 freeze --local > requirements.t
 * Thank you to Code Institute for there comprehensive guides and support.
 * A big thank you to my Code Institute mentor Graeme Taylor for all his guidance, support and endless counts of knowledge.
 * All pirate information and images was provided by [One Piece Fandom](https://onepiece.fandom.com/wiki/Bounties/List)
+
