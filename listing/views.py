@@ -9,12 +9,18 @@ from .forms import WantedForm
 
 
 class WantedListing(generic.ListView):
+    """
+    This view will list all wanted records and order by updated date.
+    """
     queryset = Wanted.objects.all().order_by('-updated_on')
     template_name = 'listing/index.html'
     paginate_by = 3
 
 
 class PirateDetailView(generic.DetailView):
+    """
+    This view will show specific pirate details when selected
+    """
     model = Wanted
     template_name = 'listing/pirate_detail.html'
     context_object_name = 'pirate'
@@ -25,6 +31,12 @@ class PirateDetailView(generic.DetailView):
 
 @login_required
 def create_wanted_listing(request):
+    """
+    This view shows the creation of a new listing.
+    
+    - If the request is post, validate and save the form data.
+    - Else, provide form to create a new listing.
+    """
     if request.method == 'POST':
         form = WantedForm(request.POST, request.FILES)
         if form.is_valid():
@@ -43,9 +55,15 @@ def create_wanted_listing(request):
 
 @login_required
 def edit_wanted_listing(request, slug):
+    """
+    This view will handle editing an existing wanted listing.
+
+    - Check is the logged-in user is the author.
+    - If post, validate and save the form data.
+    - Else, display existing data to edit.
+    """
     wanted_listing = Wanted.objects.get(slug=slug)
 
-    # Check if the logged-in user is the author
     if wanted_listing.author != request.user:
         messages.error(
             request,
@@ -70,9 +88,18 @@ def edit_wanted_listing(request, slug):
 
 @login_required
 def delete_wanted_listing(request, slug):
+    """
+     This view will handle deleting an existing wanted listing.
+
+    - Check is the logged-in user is the author.
+    - If post, delete listing and return to home page.
+    - Else, render confirmation page.
+
+    """
+
     wanted_listing = get_object_or_404(Wanted, slug=slug)
 
-    # Check if the logged-in user is the author
+   
     if wanted_listing.author != request.user:
         messages.error(
             request,

@@ -4,6 +4,16 @@ from .models import Wanted
 
 
 class WantedForm(forms.ModelForm):
+    """
+    Form for creating or editing a wanted listing
+
+    The form allows user to enter
+    pirate's name,
+    bounty,
+    description,
+    status and upload an image
+    """
+
     class Meta:
         model = Wanted
         fields = [
@@ -12,9 +22,12 @@ class WantedForm(forms.ModelForm):
             'description',
             'status',
             'pirate_image']
+    
+    """
+    This will generate a slug based on a pirates name
+    """
 
     def save(self, commit=True):
-        # Auto-generate the slug based on pirate_name
         instance = super().save(commit=False)
         instance.slug = slugify(instance.pirate_name)
         if commit:

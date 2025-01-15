@@ -58,7 +58,6 @@ python manage.py runserver
 Make sure you have the following installed:
 
 - Django (Django~=4.2.1)
-- Any other dependencies (e.g., PostgreSQL, Redis, etc.)
 - gunicorn (gunicorn~=20.1)
 - PostgreSQL (dj-database-url~=0.5 psycopg2~=2.9)
 - Cloudinary (cloudinary~=1.36.0 dj3-cloudinary-storage~=0.0.6 urllib3~=1.26.15)

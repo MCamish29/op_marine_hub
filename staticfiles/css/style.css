@@ -1,3 +1,12 @@
+main {
+    margin-bottom: 80px; /* Adjust the value as needed */
+}
+
+footer {
+    position: relative; /* Ensure the footer stays at the end of the content */
+    z-index: 1;
+}
+
 .navbar-brand {
     font-family: 'Allerta Stencil', sans-serif;
     font-weight: normal;
