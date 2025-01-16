@@ -25,7 +25,7 @@ class Wanted(models.Model):
     pirate_name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     bounty = models.BigIntegerField(validators=[MinValueValidator(1)])
-    pirate_image = CloudinaryField('image', default='')
+    pirate_image = CloudinaryField('image', default='https://res.cloudinary.com/dunhhqljl/image/upload/v1736789635/marines_aculb0.png')
     description = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
