@@ -8,7 +8,10 @@ A web application inspired by One Piece, designed for the Marines to efficiently
 [Link to repository](https://github.com/MCamish29/op_marine_hub.git)<br><br>
 _To open links in a new tab, hold CTRL + Click_
 
-## Table of Contents
+# Table of Contents
+
+- [Wireframe](#wireframe)
+- [Design](#design)
 - [Features](#features)
 - [Installation](#installation)
 - [Database](#database)
@@ -18,17 +21,61 @@ _To open links in a new tab, hold CTRL + Click_
 - [Technologies Used](#technologies-used)
 - [Acknowledgments](#acknowledgments)
 
+
+# WireFrame
+
+#### Home page
+![Homepage](static/images/homepage.png)
+
+#### Details page
+![Detailspage](static/images/detailspage.png)
+
+#### Edit page
+![Editpage](static/images/editpage.png)
+
+#### New listing page
+![Newlistingpage](static/images/newlistingpage.png)
+
+#### Login page
+![Loginpage](static/images/login.png)
+
+#### Register page
+![Registerpage](static/images/register.png)
+
+# Design
+
+The design of the site draws inspiration from the iconic World Government's Marines in the beloved anime series One Piece. To capture the essence of their presence, the color scheme across the pages incorporates shades of blue, white, and grey—each of which are signature hues closely associated with the Marines. These colors are instantly recognizable to fans of the anime, reinforcing the theme and adding a layer of familiarity and depth to the overall aesthetic.
+
+To further enhance the site's theme, the font Allerta Stencil from Google Fonts was chosen for its bold, military-inspired aesthetic. Its strong, stencil-like appearance complements the overall design, reinforcing the site’s militant vibe and aligning perfectly with the World Government Marines theme.
+
 ## Features
 The web app allows Marine officers to perform the following actions to manage the most wanted pirate lists:
 - Add new pirate records.
 ![Add](static/images/newlisting.webp)
+_Adding a new pirate listing aligns with the below user stories:_<br>
+[New wanted listing](https://github.com/MCamish29/op_marine_hub/issues/8)
+
 - Edit existing pirate records.
 ![Edit](static/images/editlisting.webp)
+_Editing existing pirate records aligns with the below user storirs:_<br>
+[Edit existing listing](https://github.com/MCamish29/op_marine_hub/issues/19)
+
 - Delete existing pirate records.
 ![Delete](static/images/deletelisting.webp)
+_Deleting existing pirate records aligns with the below user stories:_<br>
+[Delete pirate listing](https://github.com/MCamish29/op_marine_hub/issues/12)
+
 - View most wanted pirates with bounty details.
 ![Home](static/images/index.webp)
-- User authentication to edit the site.
+_Viewing most wanted pirates with bounty details aligns with the below user stores:_<br>
+[View most wanted pirates](https://github.com/MCamish29/op_marine_hub/issues/3)<br>
+[View details of pirate listing](https://github.com/MCamish29/op_marine_hub/issues/4)
+
+- User authentication to edit the site.<br>
+_User authentication aligns with the below user stories:_<br>
+[Account registration](https://github.com/MCamish29/op_marine_hub/issues/6)<br>
+[Account functionality](https://github.com/MCamish29/op_marine_hub/issues/7)
+
 - Responsive design for easy use on desktop and mobile devices<br>
 <img src="static/images/pixel7view.webp" alt="Mobile" width="200" height="auto">
 <img src="static/images/tabletview.webp" alt="Tablet" width="309" height="auto">
@@ -41,6 +88,8 @@ The web app allows Marine officers to perform the following actions to manage th
 
 # Installation
 
+## Clong the Repository
+
 ### 1. Clone the repository
 Clone the GitHub repository to your local machine : [Link to repository](https://github.com/MCamish29/op_marine_hub.git)
 
@@ -52,6 +101,10 @@ python manage.py migrate
 
 ### 4. Run server
 python manage.py runserver
+
+## Forking
+
+To make changes or contribute, fork the repository to your GitHub account by clicking the "Fork" button on the repository page : [Link to repository](https://github.com/MCamish29/op_marine_hub.git)
 
 ### Prerequisites
 
@@ -68,9 +121,36 @@ Make sure you have the following installed:
 You can install them via `pip3`<br>
 Packages must be added to requirements.txt `pip3 freeze --local > requirements.txt`
 
+## Deployment
+
+
+1. Log in to Heroku or create account
+2. Click the **new** button on the top right to display drop down
+3. Select **create new app**
+4. Enter app name - *this must be a unique name*
+5. Choose relevant region
+6. Click **create app**
+7. On the application dashboard select **settings**
+8. Scroll down to *Config Vars*
+9. Click on **Reveal_Config vars**
+10. Enter **DATABASE_URL**
+11. Click add
+12. Enter **Cloudinary API**
+13. Click add
+14. Enter **Secret Key**
+15. Click add
+16. Select **deploy** at the top of the application dashboard
+17. Select **GitHub** as deployment method
+18. Search for repository name and click **connect**
+19. Scroll down and select either **Enable Automatic Deploys** or **Deploy Branch** for manual deployment.
+20. This will then run the process to deploy the application
+21. Click on **View** once successfully deployed
+
 # Database
 
 ## Entity-Relationship Diagram (ERD)
+
+![ERD](static/images/erd.png)
 
 ### User Table
 | **Key**          | **Name**        | **Type**           |
@@ -145,30 +225,7 @@ The Javascript file was passed [JSHint](https://jshint.com/) successfully.
 Bugs were found during development of the site and resolved which can be seen on the [Kanban workflow](https://github.com/users/MCamish29/projects/2/views/1).
 
 
-# Deployment
 
-
-1. Log in to Heroku or create account
-2. Click the **new** button on the top right to display drop down
-3. Select **create new app**
-4. Enter app name - *this must be a unique name*
-5. Choose relevant region
-6. Click **create app**
-7. On the application dashboard select **settings**
-8. Scroll down to *Config Vars*
-9. Click on **Reveal_Config vars**
-10. Enter **DATABASE_URL**
-11. Click add
-12. Enter **Cloudinary API**
-13. Click add
-14. Enter **Secret Key**
-15. Click add
-16. Select **deploy** at the top of the application dashboard
-17. Select **GitHub** as deployment method
-18. Search for repository name and click **connect**
-19. Scroll down and select either **Enable Automatic Deploys** or **Deploy Branch** for manual deployment.
-20. This will then run the process to deploy the application
-21. Click on **View** once successfully deployed
 
 # Technologies Used
 

@@ -1,9 +1,9 @@
 main {
-    margin-bottom: 80px; /* Adjust the value as needed */
+    margin-bottom: 80px; 
 }
 
 footer {
-    position: relative; /* Ensure the footer stays at the end of the content */
+    position: relative; 
     z-index: 1;
 }
 
