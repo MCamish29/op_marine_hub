@@ -80,6 +80,9 @@ _User authentication aligns with the below user stories:_<br>
 <img src="static/images/pixel7view.webp" alt="Mobile" width="200" height="auto">
 <img src="static/images/tabletview.webp" alt="Tablet" width="309" height="auto">
 
+- Django administration page<br>
+![djangoadministrationpage](static/images/admin.png)
+
 ## Future enhancements
 * Adding a commenting system for users to engage with pirate listings.
 * Search functionality will allow users to efficiently find pirates by name, bounty, or other details.
